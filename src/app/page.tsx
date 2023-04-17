@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
-        <h1 style={ { color: 'red'}}>{process.env.NODE_ENV == 'production' && !process.env.ASSET_PREFIX && "ASSET_PREFIX env variable not set"  }</h1>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
@@ -21,7 +20,7 @@ export default function Home() {
           >
             By{' '}
             <Image
-              src="/vercel.svg"
+              src={process.env.BASE_PATH + "/vercel.svg"}
               alt="Vercel Logo"
               className={styles.vercelLogo}
               width={100}
@@ -35,7 +34,7 @@ export default function Home() {
       <div className={styles.center}>
         <Image
           className={styles.logo}
-          src="/next.svg"
+          src={process.env.BASE_PATH + "/next.svg"}
           alt="Next.js Logo"
           width={180}
           height={37}
