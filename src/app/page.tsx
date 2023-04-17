@@ -8,6 +8,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+        <h1 style={ { color: 'red'}}>{process.env.NODE_ENV == 'production' && !process.env.ASSET_PREFIX && "ASSET_PREFIX env variable not set"  }</h1>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
@@ -41,7 +42,14 @@ export default function Home() {
           priority
         />
       </div>
-
+      <h2>The Programming Lab</h2>
+      <h2>{
+        process.env.HELLO_WORLD ? process.env.HELLO_WORLD :
+          process.env.NODE_ENV == 'production'? 
+          "Set HELLO_WORLD website deployment settings":
+          "Set HELLO_WORLD in .env"
+        }
+      </h2>
       <div className={styles.grid}>
         <a
           href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
